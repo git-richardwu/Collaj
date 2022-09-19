@@ -9,11 +9,11 @@ const artSchema = new Schema ({
     },
     artist: {
         type: String,
-        requried: true
+        required: true
     },
     source: {
         type: String,
-        requried: true
+        required: true
     }
 
 }, { timestamps: true} )
