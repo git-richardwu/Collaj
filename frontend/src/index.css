@@ -1,0 +1,127 @@
+@font-face{
+  font-family: Roboto_Slab;
+  src: url(./components/fonts/RobotoSlab-Regular.ttf)
+}
+
+body {
+  background: whitesmoke;
+  /* #212a31 */
+  font-family: Roboto_Slab;
+  margin: 0;
+}
+
+.pages {
+  /* padding: 20px; */
+  margin: 0 auto;
+}
+
+.homePage {
+  width: 70%;
+  margin: 2rem auto;
+}
+
+.artGallery {
+  line-height: 0;       
+  -webkit-column-count: 5;    
+  -webkit-column-gap: 0px;    
+  -moz-column-count: 5;
+  -moz-column-gap: 0px;
+  column-count: 5;    
+  column-gap: 0px;  
+}
+
+.artInfo {
+  cursor: pointer;
+}
+
+.artInfo img:hover {
+  transform: scale(1.1);
+}
+
+.artInfo img {
+  width: 100% !important;
+  height: auto !important;
+  border-radius: 15px;
+  padding-bottom: 5px;
+  transition: all .3s ease-in-out;
+}
+
+.artGallery {   
+  gap: 5px;
+  padding-top: 25px;
+  display: inline-block;    
+  margin-right: auto;    
+  margin-left: auto;
+}
+
+.container {
+  padding-top: 45px;
+  padding-bottom: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.container img {
+  max-width: 1000px;
+  max-height: 720px;
+  width: auto;
+  height: auto;
+}
+
+.content {
+  border-left: 2px solid whitesmoke;
+  padding: 25px;
+  padding-top: 15px;
+  background-color: #333;
+  color: whitesmoke;
+  font-family: Roboto_Slab;
+  /* display: inline; */
+}
+
+button {
+  background-color: #296C97;
+  border: none;
+  border-radius: 15px;
+  color: whitesmoke;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-left: 2px;
+  cursor: pointer;
+}
+.deleteButton {
+  height: 50px;
+  background-color: #ff4d4d;
+}
+
+@media (max-width: 1200px) {
+  .artGallery {
+  -moz-column-count:    4;
+  -webkit-column-count: 4;
+  column-count:         4;
+  }
+}
+@media (max-width: 1000px) {
+  .artGallery {
+  -moz-column-count:    3;
+  -webkit-column-count: 3;
+  column-count:         3;
+  }
+}
+@media (max-width: 800px) {
+  .artGallery {
+  -moz-column-count:    2;
+  -webkit-column-count: 2;
+  column-count:         2;
+  }
+}
+@media (max-width: 400px) {
+  .artGallery {
+  -moz-column-count:    1;
+  -webkit-column-count: 1;
+  column-count:         1;
+  }
+}
