@@ -1,4 +1,4 @@
-const Art = require('../models/artModels');
+const Art = require('../models/artModel');
 const mongoose = require('mongoose');
 const Vibrant = require('node-vibrant');
 const puppeteer = require('puppeteer-extra');
