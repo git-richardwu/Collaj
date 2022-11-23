@@ -1,6 +1,6 @@
 import { createContext, useReducer } from "react";
 
-export const ArtContext = createContext()
+export const ArtContext = createContext();
 
 export const artReducer = (state, action) => {
     switch (action.type) {
@@ -13,12 +13,11 @@ export const artReducer = (state, action) => {
                 artworks: [action.payload, ...state.artworks]
             }
         default:
-            return state
+            return state;
     }
 }
 
 export const ArtContextProvider = ({ children }) => {
-
     const [state, dispatch] = useReducer(artReducer, {
         artworks: null
     })
