@@ -5,18 +5,69 @@
 
 body {
   background: whitesmoke;
-  /* #212a31 */
   font-family: Roboto_Slab;
   margin: 0;
 }
 
-.pages {
-  /* padding: 20px; */
-  margin: 0 auto;
+button {
+  background-color: #296C97;
+  border: none;
+  border-radius: 10px;
+  color: whitesmoke;
+  padding: 5px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 2px;
+  cursor: pointer;
 }
 
+form {
+  display: block;
+  text-align: center;
+}
+
+/*ArtPage.js*//*ArtPage.js*//*ArtPage.js*//*ArtPage.js*//*ArtPage.js*//*ArtPage.js*//*ArtPage.js*//*ArtPage.js*/
+.container {
+  padding: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.container img {
+  max-width: 100%;
+  max-height: 720px;
+  width: auto;
+  height: auto;
+  object-fit: cover;
+}
+
+.content {
+  border-left: 2px solid whitesmoke;
+  border-radius: 5px;
+  padding: 25px;
+  padding-top: 15px;
+  padding-left: 15px;
+  background-color: #333;
+  color: whitesmoke;
+  font-family: Roboto_Slab;
+}
+
+.alt-content {
+  position: relative;
+}
+
+.deleteButton {
+  height: 50px;
+  background-color: #ff4d4d;
+}
+/*ArtPage.js*//*ArtPage.js*//*ArtPage.js*//*ArtPage.js*//*ArtPage.js*//*ArtPage.js*//*ArtPage.js*//*ArtPage.js*/
+
+/*HomePage.js*//*HomePage.js*//*HomePage.js*//*HomePage.js*//*HomePage.js*//*HomePage.js*//*HomePage.js*/
 .homePage {
-  width: 70%;
+  width: 72%;
   margin: 2rem auto;
 }
 
@@ -30,12 +81,28 @@ body {
   column-gap: 0px;  
 }
 
+.searchBar {
+  text-align: center;
+  width: 100%;
+}
+
+input[type=number], input[type=password], input[type=text], select {
+  border: 2px solid #333;
+  border-radius: 4px;
+  height: 20px;
+}
+
+.formGroup {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
 .artInfo {
   cursor: pointer;
 }
 
 .artInfo img:hover {
-  transform: scale(1.1);
+  transform: scale(1.2);
 }
 
 .artInfo img {
@@ -53,57 +120,121 @@ body {
   margin-right: auto;    
   margin-left: auto;
 }
+/*HomePage.js*//*HomePage.js*//*HomePage.js*//*HomePage.js*//*HomePage.js*//*HomePage.js*//*HomePage.js*/
 
-.container {
-  padding-top: 45px;
-  padding-bottom: 50px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+/*Loginpage*//*SignUpPage*//*Loginpage*//*SignUpPage*//*Loginpage*//*SignUpPage*//*Loginpage*//*SignUpPage*/
+.userForm {
+  padding-left: 72px;
+  padding-right: 72px;
 }
 
-.container img {
-  max-width: 1000px;
-  max-height: 720px;
-  width: auto;
-  height: auto;
+.userInput {
+  width: 100%;
+  margin-right: 20px;
+  margin-bottom: 10px;
+  text-align: center;
 }
+/*Loginpage*//*SignUpPage*//*Loginpage*//*SignUpPage*//*Loginpage*//*SignUpPage*//*Loginpage*//*SignUpPage*/
 
-.content {
-  border-left: 2px solid whitesmoke;
-  padding: 25px;
-  padding-top: 15px;
+/*Navbar.js*//*Navbar.js*//*Navbar.js*//*Navbar.js*//*Navbar.js*//*Navbar.js*//*Navbar.js*//*Navbar.js*//*Navbar.js*/
+.navbar-style {
   background-color: #333;
-  color: whitesmoke;
-  font-family: Roboto_Slab;
-  /* display: inline; */
+  overflow: hidden;
 }
 
-button {
-  background-color: #296C97;
-  border: none;
-  border-radius: 15px;
+.navbar-style .name {
+  float: left;
+  padding: 10px 20px;
+}
+
+.navbar-style .name h2{
   color: whitesmoke;
-  padding: 10px 25px;
+}
+
+.navbar-style .separate {
+  flex: 50%;
+  display: flex;
+  white-space: nowrap;
+  justify-content: right;
+  align-items: center;
+}
+
+.navbar-style .separate h3{
+  color: whitesmoke;
+  padding-top: 12px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.welcome {
+  color: whitesmoke;
+  padding-top: 14px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.navbar-style .separate h3:hover{
+  color: #296C97;
+  transition: 0.4s;
+}
+
+.logout {
+  background-color: #ff4d4d;
+  border: none;
+  border-radius: 10px;
+  color: whitesmoke;
+  font-weight: bold;
+  padding: 6px 12px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  margin-left: 2px;
+  margin-top: 17px;
+  margin-right: 5px;
   cursor: pointer;
 }
-.deleteButton {
-  height: 50px;
-  background-color: #ff4d4d;
+
+a:hover, a:visited, a:link, a:active
+{
+  text-decoration: none;
 }
 
+@media (max-width: 650px) {
+  .welcome {
+      display: none;
+  }
+  .logout {
+      margin-top: 31px;
+  }
+}
+/*Navbar.js*//*Navbar.js*//*Navbar.js*//*Navbar.js*//*Navbar.js*//*Navbar.js*//*Navbar.js*//*Navbar.js*//*Navbar.js*/
+
+/*SubmissionForm*//*SubmissionForm*//*SubmissionForm*//*SubmissionForm*//*SubmissionForm*//*SubmissionForm*/
+.urlForm {
+  width: 70%;
+}
+
+.indexForm {
+  width: 50px
+}
+/*SubmissionForm*//*SubmissionForm*//*SubmissionForm*//*SubmissionForm*//*SubmissionForm*//*SubmissionForm*/
+
 @media (max-width: 1200px) {
+  .content {
+    border-top: 2px solid whitesmoke;
+    border-left: 0;
+  }
+  .container {
+    display: grid;
+  }
   .artGallery {
   -moz-column-count:    4;
   -webkit-column-count: 4;
   column-count:         4;
+  white-space: nowrap; 
   }
 }
+
 @media (max-width: 1000px) {
   .artGallery {
   -moz-column-count:    3;
