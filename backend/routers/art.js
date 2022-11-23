@@ -1,15 +1,14 @@
-const express = require('express')
-const { getAllArt, getSpecificArt, addArt, deleteArt, updateArt } = require('../controllers/artController')
-const router = express.Router()
+const express = require('express');
+const { getAllArt, addArt, deleteArt } = require('../controllers/artController');
+const router = express.Router();
+const requireAuth = require('../middleware/requireAuth');
 
-router.get('/', getAllArt)
+router.use(requireAuth);
 
-router.get('/:id', getSpecificArt)
+router.get('/', getAllArt);
 
-router.post('/', addArt)
+router.post('/', addArt);
 
-router.delete('/:id', deleteArt)
+router.delete('/:id', deleteArt);
 
-router.patch('/:id', updateArt)
-
-module.exports = router
+module.exports = router;

@@ -2,7 +2,6 @@ const Art = require('../models/artModel');
 const mongoose = require('mongoose');
 const Vibrant = require('node-vibrant');
 const puppeteer = require('puppeteer-extra');
-const { executablePath } = require('puppeteer');
 const StealthPlugin = require('puppeteer-extra-plugin-stealth');
 puppeteer.use(StealthPlugin());
 
