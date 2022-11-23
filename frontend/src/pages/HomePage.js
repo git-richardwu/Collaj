@@ -1,37 +1,35 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { useArtContext } from "../components/hooks/useArtContext";
+import { useArtContext } from "../hooks/useArtContext";
+import { useUserContext } from "../hooks/useUserContext";
 import SubmissionForm from "../components/SubmissionForm";
-var colorsys = require('colorsys')
 
 export default function HomePage() {
-    const {artworks, dispatch} = useArtContext()
-    const [searchEntry, setSearchEntry] = useState('')
-
+    const {artworks, dispatch} = useArtContext();
+    const [searchEntry, setSearchEntry] = useState('');
+    const { user } = useUserContext();
+    
     useEffect(() => {
         const fetchArt = async () => {
-            const response = await fetch('/api/art')
-            const json = await response.json()
-
+            const response = await fetch('/api/art', {
+                headers: {'Authorization': `Bearer ${user.token}`}
+            })
+            const json = await response.json();
             if (response.ok) {
-                dispatch({type: 'SET_ARTWORK', payload: json})
+                dispatch({type: 'SET_ARTWORK', payload: json});
             }
         }
-        fetchArt()
-    }, [dispatch])
-
-    const handleSearch = (e) => {
-        e.preventDefault()
-        setSearchEntry(e)
-        // console.log(artworks)
-    }
+        if (user) {
+            fetchArt();
+        }  
+    }, [dispatch, user])
 
     return (
         <div className="homePage">
-            <input type="text" placeholder="Search" onChange={(e) => handleSearch(e.target.value)}/>
+            <input type="text" placeholder="Search Artwork by Name/Author" className="searchBar" onChange={(e) => setSearchEntry(e.target.value)}/>
             <SubmissionForm />
             <div className="artGallery">
-                {artworks && artworks.filter((a) => a.title.toLowerCase().includes(searchEntry.toLowerCase())).sort((x, y) => (x.artist.localeCompare(y.artist))).map((artwork) => (
+                {artworks && artworks.filter((a) => a.title.toLowerCase().includes(searchEntry.toLowerCase()) || a.artist.toLowerCase().includes(searchEntry.toLowerCase())).sort((x, y) => (x.dominantColor[0] - y.dominantColor[0]) || x.dominantColor[1] - y.dominantColor[1] || x.dominantColor[2] - y.dominantColor[2]).map((artwork) => (
                     <Link key={artwork._id} to={`/art-details/${artwork._id}`} state={{ url: artwork.imageLink, title: artwork.title, artist: artwork.artist, source: artwork.source, id: artwork._id }}>
                         <div className="artInfo">
                             <img src={ artwork.imageLink } alt={artwork.title}/>
