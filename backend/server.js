@@ -9,7 +9,7 @@ const app = express();
 app.use(express.json());
 app.use(
     cors({
-      origin: ["http://localhost:3000", "https://another-collaj-test.onrender.com"],
+      origin: ["http://localhost:3000", "https://collaj.onrender.com"],
     })
 );
 app.use((req, res, next) => {
