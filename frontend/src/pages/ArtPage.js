@@ -9,7 +9,7 @@ export default function ArtPage() {
     const navigate = useNavigate();
 
     const handleSubmit = async () => {
-       const response = await fetch(process.env.API + '/api/art/' + state.id, {
+       const response = await fetch(process.env.REACT_APP_API + '/api/art/' + state.id, {
             method: 'DELETE', 
             headers: {'Authorization': `Bearer ${user.token}`}
        })

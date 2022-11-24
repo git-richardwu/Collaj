@@ -11,7 +11,7 @@ export default function HomePage() {
     
     useEffect(() => {
         const fetchArt = async () => {
-            const response = await fetch(process.env.API + '/api/art', {
+            const response = await fetch(process.env.REACT_APP_API + '/api/art', {
                 headers: {'Authorization': `Bearer ${user.token}`}
             })
             const json = await response.json();

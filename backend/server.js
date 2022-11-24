@@ -1,5 +1,4 @@
 require('dotenv').config();
-
 const express = require('express');
 const mongoose = require('mongoose');
 const artRoutes =  require('./routers/art');
@@ -10,7 +9,7 @@ const app = express();
 app.use(express.json());
 app.use(
     cors({
-      origin: ["http://localhost:8000", "https://another-collaj-test.onrender.com"],
+      origin: ["http://localhost:3000", "https://another-collaj-test.onrender.com"],
     })
 );
 app.use((req, res, next) => {
