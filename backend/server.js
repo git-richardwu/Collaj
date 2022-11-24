@@ -21,6 +21,10 @@ app.use((req, res, next) => {
 app.use('/api/art', artRoutes);
 app.use('/api/user', userRoutes);
 
+app.get('/', (req, res) => {
+    res.send('Hello World!')
+})
+
 mongoose.connect(process.env.MONGO_CONNECT)
     .then(() => {
         app.listen(process.env.PORT, () => { console.log('Listening on port', process.env.PORT); })
