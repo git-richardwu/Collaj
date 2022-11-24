@@ -19,7 +19,7 @@ export default function SubmissionForm() {
             return;
         }
         const art = { source, pieceIndex, artSite };
-        const response = await fetch('/api/art', {
+        const response = await fetch(process.env.API + '/api/art', {
             method: 'POST',
             body: JSON.stringify(art),
             headers: {
