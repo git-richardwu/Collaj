@@ -4,10 +4,15 @@ const express = require('express');
 const mongoose = require('mongoose');
 const artRoutes =  require('./routers/art');
 const userRoutes = require('./routers/user');
+const cors = require("cors");
 const app = express();
 
 app.use(express.json());
-
+app.use(
+    cors({
+      origin: ["http://localhost:8000", "https://collaj.onrender.com"],
+    })
+);
 app.use((req, res, next) => {
     console.log(req.path, req.method);
     next();
