@@ -71,6 +71,11 @@ form {
   margin: 2rem auto;
 }
 
+.status {
+  text-align: center;
+  font-size: 18px;
+}
+
 .artGallery {
   line-height: 0;       
   -webkit-column-count: 5;    

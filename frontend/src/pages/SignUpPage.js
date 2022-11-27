@@ -4,11 +4,14 @@ import { useSignup } from '../hooks/useSignup';
 export default function SignUpPage() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [isShown, setIsShown] = useState(false);
     const { signup, isLoading, error } = useSignup();
 
     const handleSignUp = async (e) => {
         e.preventDefault();
+        setIsShown(true);
         await signup(username, password);
+        setIsShown(false);
     }
 
     return (
@@ -23,6 +26,7 @@ export default function SignUpPage() {
                     <button disabled={isLoading}>Sign up!</button>
                 </div>
                 {error && <div>{error}</div>}
+                {isShown && <p className="status">Signing up...</p>}
             </form>
         </div>
     )
