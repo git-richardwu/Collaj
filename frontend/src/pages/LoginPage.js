@@ -4,11 +4,14 @@ import { useLogin } from '../hooks/useLogin';
 export default function LoginPage() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [isShown, setIsShown] = useState(false);
     const { login, isLoading, error } = useLogin();
 
     const handleLogin = async (e) => {
         e.preventDefault();
+        setIsShown(true);
         await login(username, password);
+        setIsShown(false);
     }
 
     return (
@@ -23,6 +26,7 @@ export default function LoginPage() {
                     <button disabled={isLoading}>Log in!</button>
                 </div>
                 {error && <div>{error}</div>}
+                {isShown && <div className="status">Logging in...</div>}
             </form>
         </div>
     )
