@@ -12,6 +12,7 @@ export default function SubmissionForm() {
     const [isLoading, setLoading] = useState(false);
     
     const handleSubmit = async (e) => {
+        console.log('confirm')
         setLoading(true);
         e.preventDefault();
         if (!user) {
@@ -19,7 +20,8 @@ export default function SubmissionForm() {
             return;
         }
         const art = { source, pieceIndex, artSite };
-        const response = await fetch(process.env.API + '/api/art', {
+        console.log(e)
+        const response = await fetch('https://collaj-test.onrender.com/api/art', {
             method: 'POST',
             body: JSON.stringify(art),
             headers: {
