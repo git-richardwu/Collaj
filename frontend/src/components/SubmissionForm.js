@@ -12,7 +12,6 @@ export default function SubmissionForm() {
     const [isLoading, setLoading] = useState(false);
     
     const handleSubmit = async (e) => {
-        console.log('confirm')
         setLoading(true);
         e.preventDefault();
         if (!user) {
@@ -20,16 +19,18 @@ export default function SubmissionForm() {
             return;
         }
         const art = { source, pieceIndex, artSite };
-        console.log(e)
-        const response = await fetch('https://collaj-test.onrender.com/api/art', {
+        console.log(art)
+        const response = await fetch(process.env.REACT_APP_API + '/api/art', {
             method: 'POST',
-            body: JSON.stringify(art),
+            body: art,
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${user.token}`
             }
         })
+        console.log(response)
         const json = await response.json();
+        console.log(json)
         if (response.ok) {
             setSource('');
             setIndex(1);
