@@ -22,7 +22,7 @@ export default function SubmissionForm() {
         console.log(art)
         const response = await fetch(process.env.REACT_APP_API + '/api/art', {
             method: 'POST',
-            body: art,
+            body: JSON.stringify(art),
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${user.token}`
