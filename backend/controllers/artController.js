@@ -53,7 +53,9 @@ const addArt = async (req, res) => {
     console.log('addArt')
     try {
         const page = await browser.newPage();
+        console.log('new page')
         await page.goto(source);
+        console.log('arrived at source')
         let filteredImages = [], artLink = "", artTitle = "", artistName = "";
         if (artSite == "Artstation") {
             await page.waitForSelector('.project-assets-list img');
