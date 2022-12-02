@@ -46,6 +46,7 @@ const getAllArt = async (req, res) => {
 
 const addArt = async (req, res) => {
     const { source, pieceIndex, artSite } = req.body;
+    console.log('launch')
     const browser = await puppeteer.launch({ headless: true });
     const retrieve = [];
     const index = pieceIndex ? pieceIndex.toString() : 1;
