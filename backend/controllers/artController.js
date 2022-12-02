@@ -53,6 +53,7 @@ const addArt = async (req, res) => {
     console.log('addArt')
     try {
         const page = await browser.newPage();
+        await page.setDefaultNavigationTimeout(0);
         console.log('new page')
         await page.goto(source);
         console.log('arrived at source')
