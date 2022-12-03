@@ -25,7 +25,7 @@ export default function LoginPage() {
                     <input type="password" className="userInput" onChange={(e) => setPassword(e.target.value)} value={password}></input>
                     <button disabled={isLoading}>Log in!</button>
                 </div>
-                {error && <div>{error}</div>}
+                {error && <p>{error}</p>}
                 {isShown && <p className="status">Logging in...</p>}
             </form>
         </div>

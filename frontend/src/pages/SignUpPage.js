@@ -25,7 +25,7 @@ export default function SignUpPage() {
                     <input type="password" className="userInput" onChange={(e) => setPassword(e.target.value)} value={password}></input>
                     <button disabled={isLoading}>Sign up!</button>
                 </div>
-                {error && <div>{error}</div>}
+                {error && <p>{error}</p>}
                 {isShown && <p className="status">Signing up...</p>}
             </form>
         </div>

@@ -18,16 +18,23 @@ export default function SubmissionForm() {
             setError('You have to be logged in!');
             return;
         }
-        const art = { source, pieceIndex, artSite };
-        const response = await fetch(process.env.API + '/api/art', {
+        //const art = { source, pieceIndex, artSite };
+        // console.log(art)
+        const response = await fetch(process.env.REACT_APP_API + '/api/art', {
             method: 'POST',
-            body: JSON.stringify(art),
+            body: JSON.stringify({
+                source: source,
+                pieceIndex: pieceIndex,
+                artSite: artSite
+            }),
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${user.token}`
             }
         })
+        console.log(response)
         const json = await response.json();
+        console.log(json)
         if (response.ok) {
             setSource('');
             setIndex(1);
