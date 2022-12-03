@@ -7,11 +7,9 @@ import SubmissionForm from "../components/SubmissionForm";
 export default function HomePage() {
     const {artworks, dispatch} = useArtContext();
     const [searchEntry, setSearchEntry] = useState('');
-    const [isShown, setIsShown] = useState(false);
     const { user } = useUserContext();
     
     useEffect(() => {
-        setIsShown(true);
         const fetchArt = async () => {
             const response = await fetch(process.env.REACT_APP_API + '/api/art', {
                 headers: {'Authorization': `Bearer ${user.token}`}
@@ -23,7 +21,6 @@ export default function HomePage() {
         }
         if (user) {
             fetchArt();
-            setIsShown(false);
         }  
     }, [dispatch, user])
 
