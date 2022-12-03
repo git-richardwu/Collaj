@@ -18,8 +18,6 @@ export default function SubmissionForm() {
             setError('You have to be logged in!');
             return;
         }
-        //const art = { source, pieceIndex, artSite };
-        // console.log(art)
         const response = await fetch(process.env.REACT_APP_API + '/api/art', {
             method: 'POST',
             body: JSON.stringify({
@@ -32,9 +30,7 @@ export default function SubmissionForm() {
                 'Authorization': `Bearer ${user.token}`
             }
         })
-        console.log(response)
         const json = await response.json();
-        console.log(json)
         if (response.ok) {
             setSource('');
             setIndex(1);
@@ -64,7 +60,7 @@ export default function SubmissionForm() {
                     </select>
                     <button>Add</button>
             </div>
-            { isLoading && <div>Loading...</div>}
+            { isLoading && <p className="status">Extracting data from link...</p>}
             { error && <div className="errorMessage">Index provided is out of bounds.</div>}
         </form>
     )

@@ -46,31 +46,24 @@ const getAllArt = async (req, res) => {
 
 const addArt = async (req, res) => {
     const { source, pieceIndex, artSite } = req.body;
-    console.log('launch')
     const browser = await puppeteer.launch({ headless: true });
     const retrieve = [];
     const index = pieceIndex ? pieceIndex.toString() : 1;
-    console.log('addArt')
     try {
         const page = await browser.newPage();
-        console.log('new page')
         await page.goto(source, {
             waitUntil: 'load',
             timeout: 0
         });
-        console.log('arrived at source')
         let filteredImages = [], artLink = "", artTitle = "", artistName = "";
         if (artSite == "Artstation") {
             await page.waitForSelector('.project-assets-list img');
-            console.log('await selector')
             const images = await page.evaluate(() => Array.from(document.querySelectorAll('.project-assets-list img'), (e) => ({
                 artLinkText: e.src, //source
                 artTitleText: e.alt //title
             })));
-            console.log('images loaded')
             await page.waitForSelector('.img-circle');
             artistName = await page.$eval('.img-circle', el => el.alt);
-            console.log('img circle loaded')
             filteredImages = images.filter(image => image.artTitleText != '4k');
             artLink = filteredImages[index - 1].artLinkText;
             artTitle = filteredImages[index - 1].artTitleText;
@@ -111,7 +104,6 @@ const addArt = async (req, res) => {
         }
         retrieve.push(artTitle, artistName, artLink, color); //title, artist, artLink, dominantColor
     } catch (err) {
-        console.log('puppeteer failure')
         console.error(err.message);
     } finally {
         await browser.close();
@@ -126,7 +118,6 @@ const addArt = async (req, res) => {
         const artwork = await Art.create({ userID, title, artist, source, imageLink, pieceIndex, dominantColor });
         res.status(200).json(artwork);
     } catch (error) {
-        console.log('art creation failure')
         res.status(400).json({error: error.message});
     }
 }
