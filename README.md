@@ -46,3 +46,9 @@ Launches Mocha and Chai testing suite.
 [Artstation Link](https://www.artstation.com/artwork/KOmXmX)
 
 [Twitter Link](https://twitter.com/loishh/status/1595824345145819137?s=20)
+
+## Demo Account
+
+Username: demo
+
+Password: Demo1234!
