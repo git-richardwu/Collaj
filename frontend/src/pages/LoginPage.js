@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { useLogin } from '../hooks/useLogin';
+import { FaImage, FaPencilAlt, FaPaintBrush } from 'react-icons/fa';
+import { GoPaintcan } from 'react-icons/go';
 
 export default function LoginPage() {
     const [username, setUsername] = useState('');
@@ -15,19 +17,33 @@ export default function LoginPage() {
     }
 
     return (
-        <div className="form">
-            <form onSubmit={handleLogin}>
-                <h2>Login</h2>
-                <div className="userForm">
-                    <label>Username: </label>
-                    <input type="text" className="userInput" onChange={(e) => setUsername(e.target.value)} value={username}></input>
-                    <label>Password: </label>
-                    <input type="password" className="userInput" onChange={(e) => setPassword(e.target.value)} value={password}></input>
-                    <button disabled={isLoading}>Log in!</button>
-                </div>
-                {error && <p>{error}</p>}
-                {isShown && <p className="status">Logging in...</p>}
-            </form>
+        <div>
+            <div className="logsignForm">
+                <form onSubmit={handleLogin}>
+                    <h2>LOGIN</h2>
+                    <div className="userForm">
+                        <label>Username: </label>
+                        <input type="text" className="userInput" onChange={(e) => setUsername(e.target.value)} value={username}></input>
+                        <label>Password: </label>
+                        <input type="password" className="userInput" onChange={(e) => setPassword(e.target.value)} value={password}></input>
+                        <button disabled={isLoading}>Log in!</button>
+                    </div>
+                    {error && <p>{error}</p>}
+                    {isShown && <p className="status">Logging in...</p>}
+                </form>
+            </div>
+            <div className="icons">
+                <div><FaImage size={60}/></div>
+                <div><FaPencilAlt size={60}/></div>
+                <div><GoPaintcan size={60}/></div>
+                <div><FaPaintBrush size={60}/></div>
+                <div><FaPencilAlt size={60}/></div>
+                <div><FaImage size={60}/></div>
+                <div><FaPaintBrush size={60}/></div>
+                <div><FaPencilAlt size={60}/></div>
+                <div><FaImage size={60}/></div>
+                <div><GoPaintcan size={60}/></div>
+            </div>
         </div>
     )
 }

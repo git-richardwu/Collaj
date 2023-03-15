@@ -23,6 +23,19 @@ button {
   cursor: pointer;
 }
 
+.logsignForm {
+  display: block;
+  margin-left: 25%;
+  margin-right: 25%;
+  border-style: groove;
+  max-width: 50%;
+  text-align: center;
+  padding-top: 5px;
+  padding-bottom: 20px;
+  margin-top: 100px;
+  background-color: white;
+}
+
 form {
   display: block;
   text-align: center;
@@ -129,8 +142,8 @@ input[type=number], input[type=password], input[type=text], select {
 
 /*Loginpage*//*SignUpPage*//*Loginpage*//*SignUpPage*//*Loginpage*//*SignUpPage*//*Loginpage*//*SignUpPage*/
 .userForm {
-  padding-left: 72px;
-  padding-right: 72px;
+  padding-left: 25px;
+  padding-right: 25px;
 }
 
 .userInput {
@@ -224,6 +237,72 @@ a:hover, a:visited, a:link, a:active
 }
 /*SubmissionForm*//*SubmissionForm*//*SubmissionForm*//*SubmissionForm*//*SubmissionForm*//*SubmissionForm*/
 
+.icons div{
+  position: fixed;
+  z-index: -1;
+}
+
+.icons div:nth-child(1){
+  top: 99%;
+  left: 5%;
+  animation: animate 12s linear infinite;
+}
+
+.icons div:nth-child(2){
+  top: 99%;
+  left: 14%;
+  animation: animate 8s linear infinite;
+
+}
+.icons div:nth-child(3){
+  top: 99%;
+  left: 23%;
+  animation: animate 17s linear infinite;
+}
+
+.icons div:nth-child(4){
+  top: 99%;
+  left: 34%;
+  animation: animate 7s linear infinite;
+}
+
+.icons div:nth-child(5){
+  top: 99%;
+  left: 46%;
+  animation: animate 14s linear infinite;
+  
+}
+
+.icons div:nth-child(6){
+  top: 99%;
+  left: 50%;
+  animation: animate 9s linear infinite;
+}
+
+.icons div:nth-child(7){
+  top: 99%;
+  left: 65%;
+  animation: animate 10s linear infinite;
+}
+
+.icons div:nth-child(8){
+  top: 99%;
+  left: 71%;
+  animation: animate 17s linear infinite;
+}
+
+.icons div:nth-child(9){
+  top: 99%;
+  left: 83%;
+  animation: animate 12s linear infinite;
+}
+
+.icons div:nth-child(10){
+  top: 100%;
+  left: 91%;
+  animation: animate 8s linear infinite;
+}
+
 @media (max-width: 1200px) {
   .content {
     border-top: 2px solid whitesmoke;
@@ -237,6 +316,18 @@ a:hover, a:visited, a:link, a:active
   -webkit-column-count: 4;
   column-count:         4;
   white-space: nowrap; 
+  }
+}
+
+@keyframes animate {
+  0% {
+      transform: scale(0) translateY(0) rotate(0);
+      opacity: 1;
+  }
+
+  100% {
+      transform: scale(1.2) translateY(-420px) rotate(360deg);
+      opacity: 0;
   }
 }
 
