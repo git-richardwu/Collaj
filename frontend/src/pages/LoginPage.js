@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import { Link } from "react-router-dom";
 import { useLogin } from '../hooks/useLogin';
-import { FaImage, FaPencilAlt, FaPaintBrush } from 'react-icons/fa';
-import { GoPaintcan } from 'react-icons/go';
 
 export default function LoginPage() {
     const [username, setUsername] = useState('');
@@ -38,18 +36,6 @@ export default function LoginPage() {
                 </Link>
                 {error && <p>{error}</p>}
                 {isShown && <p className="status">Logging in...</p>}
-            </div>
-            <div className="icons">
-                <div><FaImage size={60}/></div>
-                <div><FaPencilAlt size={60}/></div>
-                <div><GoPaintcan size={60}/></div>
-                <div><FaPaintBrush size={60}/></div>
-                <div><FaPencilAlt size={60}/></div>
-                <div><FaImage size={60}/></div>
-                <div><FaPaintBrush size={60}/></div>
-                <div><FaPencilAlt size={60}/></div>
-                <div><FaImage size={60}/></div>
-                <div><GoPaintcan size={60}/></div>
             </div>
         </div>
     )
