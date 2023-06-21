@@ -1,7 +1,6 @@
 import { useState } from 'react';
+import { Link } from "react-router-dom";
 import { useSignup } from '../hooks/useSignup';
-import { FaImage, FaPencilAlt, FaPaintBrush } from 'react-icons/fa';
-import { GoPaintcan } from 'react-icons/go';
 
 export default function SignUpPage() {
     const [username, setUsername] = useState('');
@@ -17,32 +16,26 @@ export default function SignUpPage() {
     }
 
     return (
-        <div>
+        <div className="logsignContainer">
             <div className="logsignForm">
                 <form onSubmit={handleSignUp}>
                     <h2>SIGN UP</h2>
+                    <hr/>
                     <div className="userForm">
                         <label>Username: </label>
                         <input type="text" className="userInput" onChange={(e) => setUsername(e.target.value)} value={username}></input>
                         <label>Password: </label>
                         <input type="password" className="userInput" onChange={(e) => setPassword(e.target.value)} value={password}></input>
-                        <button disabled={isLoading}>Sign up!</button>
+                        <button className='logsignButton' disabled={isLoading}>Sign up!</button>
                     </div>
-                    {error && <p>{error}</p>}
-                    {isShown && <p className="status">Signing up...</p>}
+                    <hr/>
                 </form>
-            </div>
-            <div className="icons">
-                <div><FaImage size={60}/></div>
-                <div><FaPencilAlt size={60}/></div>
-                <div><GoPaintcan size={60}/></div>
-                <div><FaPaintBrush size={60}/></div>
-                <div><FaPencilAlt size={60}/></div>
-                <div><FaImage size={60}/></div>
-                <div><FaPaintBrush size={60}/></div>
-                <div><FaPencilAlt size={60}/></div>
-                <div><FaImage size={60}/></div>
-                <div><GoPaintcan size={60}/></div>
+                <div>Have an acccount?</div>
+                <Link to='/login'>
+                    <button className='logsignButton'>Sign In!</button>
+                </Link>
+                {error && <p>{error}</p>}
+                {isShown && <p className="status">Signing up...</p>}
             </div>
         </div>
     )
