@@ -39,6 +39,7 @@ button {
   justify-content: center;
   text-align: center;
   z-index: -1;
+  overflow-y: auto;
   background: linear-gradient(90deg, #B37BA4 0%, #296C97 50%, #59CD90 100%);
 }
 
@@ -63,14 +64,26 @@ button.logsignButton {
 }
 
 
-hr {
+.smallBreak {
   margin: 20px 50px;
   color: #296C97;
+}
+
+.largeBreak {
+  margin: 10px 100px;
+  color: whitesmoke
 }
 
 form {
   display: block;
   text-align: center;
+}
+
+.aboutHeading {
+  margin-top: 100px;
+  color: whitesmoke;
+  width: 80%;
+  animation: fadeAnimation 1.5s;
 }
 
 /*ArtPage.js*//*ArtPage.js*//*ArtPage.js*//*ArtPage.js*//*ArtPage.js*//*ArtPage.js*//*ArtPage.js*//*ArtPage.js*/

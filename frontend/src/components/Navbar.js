@@ -26,6 +26,9 @@ export default function Navbar() {
             )}
             {!user && (
             <div className="separate">
+                    <Link to="/about">
+                        <h3>About</h3>
+                    </Link>
                     <Link to="/login">
                         <h3>Login</h3>
                     </Link>
