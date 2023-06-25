@@ -20,7 +20,7 @@ export default function SignUpPage() {
             <div className="logsignForm">
                 <form onSubmit={handleSignUp}>
                     <h2>SIGN UP</h2>
-                    <hr/>
+                    <hr className='smallBreak'/>
                     <div className="userForm">
                         <label>Username: </label>
                         <input type="text" className="userInput" onChange={(e) => setUsername(e.target.value)} value={username}></input>
@@ -28,7 +28,7 @@ export default function SignUpPage() {
                         <input type="password" className="userInput" onChange={(e) => setPassword(e.target.value)} value={password}></input>
                         <button className='logsignButton' disabled={isLoading}>Sign up!</button>
                     </div>
-                    <hr/>
+                    <hr className='smallBreak'/>
                 </form>
                 <div>Have an acccount?</div>
                 <Link to='/login'>
